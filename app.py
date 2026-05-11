@@ -16,5 +16,7 @@ def extract():
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
         return jsonify({'audio_url': info['url'], 'title': info['title']})
-        port = int(os.environ.get('PORT', 8080))
-app.run(host='0.0.0.0', port=port)
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port)
